@@ -2,7 +2,8 @@
 function agregarAmigo() {
     let nombre = document.getElementById("nombreAmigo").value;
     if ((nombre.length) > 0) {
-        addFriend(nombre);
+        document.getElementById("resultado").innerHTML = "";
+        addToFriendList(nombre);
     } else {
         alert("Ingrese un nombre");
     }
@@ -15,12 +16,14 @@ function sortearAmigo() {
         console.log(numeroRandom);
         let nombreResultado = listaAmigos[numeroRandom];
         resultadoElement.innerHTML = "El nombre del amigo random es: " + nombreResultado;
+        listaAmigos = [];
+        document.getElementById("listaAmigos").innerHTML = "";    
     } else {
         alert("No hay amigos registrados :(");
     }
 }
 
-function addFriend(nombreAmigo) {
+function addToFriendList(nombreAmigo) {
     let friendList = document.getElementById("listaAmigos");
     listaAmigos.push(nombreAmigo);
     document.getElementById("nombreAmigo").value = "";
